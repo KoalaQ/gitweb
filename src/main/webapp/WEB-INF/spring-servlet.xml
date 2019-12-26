@@ -11,7 +11,7 @@
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config />
     <!-- 设置使用注解的类所在的jar包 -->
-    <context:component-scan base-package="controller"></context:component-scan>
+    <context:component-scan base-package="web"></context:component-scan>
 <!--    &lt;!&ndash; 视图解析器 &ndash;&gt;
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
              <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -23,10 +23,10 @@
         <property name="prefix" value="/jsp/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".jsp"/>
-    </bean>
+    </bean>-->
 
 <!--
     &lt;!&ndash; 这个json 转换 &ndash;&gt;
