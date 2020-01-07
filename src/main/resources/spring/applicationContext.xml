@@ -12,11 +12,11 @@
     <context:component-scan base-package="service"></context:component-scan>
     <!-- more bean definitions for services go here -->
 
-    <mybatis:scan base-package="db.sys.dao"/>
+    <mybatis:scan base-package="db"/>
 
     <!--数据库连接池-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="url" value="jdbc:mysql://localhost/gitwebdb?useUnicode=true"/>
+        <property name="url" value="jdbc:mysql://localhost/gitwebdb?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="root"/>
         <property name="password" value="test1"/>
         <property name="filters" value="stat"/>

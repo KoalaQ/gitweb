@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="db.kl.dao.ArticlesMapper">
+
+    <resultMap id="attachmentResultMap" type="db.kl.dto.Articles">
+        <result property="urid" column="urid"/>
+        <result property="articledirid" column="articledirid"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content" jdbcType="CLOB" javaType="java.lang.String"/>
+        <result property="articletype" column="articletype"/>
+        <result property="source" column="source"/>
+        <result property="createdby" column="createdby"/>
+        <result property="createdon" column="createdon"/>
+        <result property="lastmodifiedby" column="lastmodifiedby"/>
+        <result property="lastmodifiedon" column="lastmodifiedon"/>
+        <result property="rowversion" column="rowversion"/>
+    </resultMap>
+
+
+    <select id="getArticleId" resultMap="attachmentResultMap" parameterType="Integer">
+        SELECT * from kl_articles where urid = #{urid}
+    </select>
+    <insert id="insertArticle" parameterType="db.kl.dto.Articles">
+        insert into kl_articles (articledirid, title, articletype,content,source,createdby,createdon,lastmodifiedby,lastmodifiedon)
+      values (#{articledirid}, #{title}, #{articletype}, #{content,jdbcType=CLOB}, #{source}, #{createdby}, #{createdon}, #{lastmodifiedby}, #{lastmodifiedon})
+    </insert>
+</mapper>
