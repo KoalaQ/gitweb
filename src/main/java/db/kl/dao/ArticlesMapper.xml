@@ -18,11 +18,25 @@
     </resultMap>
 
 
+
     <select id="getArticleId" resultMap="attachmentResultMap" parameterType="Integer">
         SELECT * from kl_articles where urid = #{urid}
+    </select>
+    <select id="getAllArticles" resultMap="attachmentResultMap">
+        SELECT * from kl_articles
     </select>
     <insert id="insertArticle" parameterType="db.kl.dto.Articles">
         insert into kl_articles (articledirid, title, articletype,content,source,createdby,createdon,lastmodifiedby,lastmodifiedon)
       values (#{articledirid}, #{title}, #{articletype}, #{content,jdbcType=CLOB}, #{source}, #{createdby}, #{createdon}, #{lastmodifiedby}, #{lastmodifiedon})
     </insert>
+    <update id="updateArticle" parameterType="db.kl.dto.Articles">
+        update kl_articles set
+        articledirid=#{articledirid},
+        title=#{title},
+        content=#{content,jdbcType=CLOB},
+        lastmodifiedby=#{lastmodifiedby},
+        lastmodifiedon=#{lastmodifiedon},
+        rowversion=rowversion+1
+        where urid=#{urid} and rowversion=#{rowversion}
+    </update>
 </mapper>

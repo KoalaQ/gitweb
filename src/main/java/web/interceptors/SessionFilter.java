@@ -19,7 +19,7 @@ public class SessionFilter implements Filter {
         String requestURI = request.getRequestURI();
         String page = requestURI.substring(request.getContextPath().length());
         // 测试输出
-        System.out.println("SessionFilter.doFilter()");
+        //System.out.println("SessionFilter.doFilter()");
         if(!page.endsWith("system/login.jsp") && !page.endsWith("user/login/login.do") ){
             // 拦截规则：
             // 如果未登录，重定向到登录，并拦截
