@@ -25,6 +25,12 @@
     <select id="getAllArticles" resultMap="attachmentResultMap">
         SELECT * from kl_articles
     </select>
+
+    <select id="getAllArticlesInfo" resultType="hashmap">
+         SELECT t.urid,t.title,t.abstractcontent,t.createdby,t.createdon,u.name createdbyname from kl_articles t
+ LEFT JOIN sy_users u on t.createdby=u.urid
+    </select>
+
     <insert id="insertArticle" parameterType="db.kl.dto.Articles">
         insert into kl_articles (articledirid, title, articletype,content,source,createdby,createdon,lastmodifiedby,lastmodifiedon)
       values (#{articledirid}, #{title}, #{articletype}, #{content,jdbcType=CLOB}, #{source}, #{createdby}, #{createdon}, #{lastmodifiedby}, #{lastmodifiedon})

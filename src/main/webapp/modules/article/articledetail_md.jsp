@@ -1,14 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: LomeL
+  User: lyd
   Date: 2020/1/8
   Time: 13:54
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getContextPath();
-%>
+<%@include file="/modules/common/include.jsp" %>
 <html>
 <head>
     <title>文章详情</title>
@@ -86,6 +84,7 @@
 </body>
 
 <script>
+
     $(function () {
         $.ajax({
             //请求方式
@@ -93,14 +92,14 @@
             //请求的媒体类型
             contentType: "application/json;charset=UTF-8",
             //请求地址
-            url: "<%=basePath%>/article/queryarticle.do?articleid=8",
+            url: "<%=basePath%>/article/queryarticle.do?articleid=${param.articleid}",
             //数据，json字符串
             // data : JSON.stringify(list),
             //请求成功
             success: function (result) {
                 var resultobj = $.parseJSON(result);
                 var text = "";
-                if (resultobj.retcode == "1") {
+                if (resultobj.retstatus == "1") {
                     var contentobj = $.parseJSON(resultobj.retdata);
                     text = contentobj.content;
                 } else {

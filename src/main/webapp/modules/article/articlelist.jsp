@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: LomeL
+  User: lyd
   Date: 2019/12/26
   Time: 18:03
   To change this template use File | Settings | File Templates.
@@ -14,27 +14,188 @@
     <title>文档列表</title>
     <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
     <script src="<%=basePath%>/js/jquery-3.4.1.min.js"></script>
-    <!-- 包括所有已编译的插件 -->
-    <script src="<%=basePath%>/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<%=basePath%>/js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>/js/bootstrap-3.3.7/css/bootstrap.min.css"/>
 
-    <link rel="stylesheet"  type="text/css" href="<%=basePath%>/js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<%=basePath%>/css/modules/article/articlelist.css"/>
 </head>
 <body>
+<article>
+    <div class="lbox">
+        <div id="mainContent" class="whitebg bloglist">
 
-<!-- 标准的按钮 -->
-<button type="button" class="btn btn-default">默认按钮</button>
-<!-- 提供额外的视觉效果，标识一组按钮中的原始动作 -->
-<button type="button" class="btn btn-primary">原始按钮</button>
-<!-- 表示一个成功的或积极的动作 -->
-<button type="button" class="btn btn-success">成功按钮</button>
-<!-- 信息警告消息的上下文按钮 -->
-<button type="button" class="btn btn-info">信息按钮</button>
-<!-- 表示应谨慎采取的动作 -->
-<button type="button" class="btn btn-warning">警告按钮</button>
-<!-- 表示一个危险的或潜在的负面动作 -->
-<button type="button" class="btn btn-danger">危险按钮</button>
-<!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 -->
-<button type="button" class="btn btn-link">链接按钮</button>
-
+        </div>
+    </div>
+</article>
+<div>
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</div>
 </body>
+<script>
+    var testboke = {
+        "retcode":1,
+        "retstatus":1,
+        "retdata":"[" +
+            "                {\n" +
+            "                    \"urid\":\"8\",//项目id\n" +
+            "                    \"title\":\"1支付宝第一批幸运儿，花呗报销一年，芝麻分狂\",//发起人名称\n" +
+            "                    \"img\":\"\",//发起人公司名称\n" +
+            "                    \"abstractcontent\":\"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...\",//发起项目类别\n" +
+            "                    \"createby\":\"1\",\n" +
+            "                    \"createdbyname\":\"admin\",\n" +
+            "                    \"createon\":\"2020-01-01\"\n" +
+            "                },\n" +
+            "                {\n" +
+            "                    \"urid\":\"9\",//项目id\n" +
+            "                    \"title\":\"2支付宝第一批幸运儿，花呗报销一年，芝麻分狂\",//发起人名称\n" +
+            "                    \"img\":\"\",//发起人公司名称\n" +
+            "                    \"abstractcontent\":\"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...\",//发起项目类别\n" +
+            "                    \"createby\":\"1\",\n" +
+            "                    \"createdbyname\":\"admin\",\n" +
+            "                    \"createon\":\"2020-01-01\"\n" +
+            "                }]" +
+            "" +
+            "",
+        "retdatasize":"4",
+        "datalist":{
+            "total":17,//总条数
+            "size":10,//分页大小-默认为0
+            "pages":2,//总页数
+            "current":1,//当前页数
+            "datas":[//author-riverLethe-double-slash-note数据部分
+                {
+                    "urid":"8",//项目id
+                    "title":"1支付宝第一批幸运儿，花呗报销一年，芝麻分狂",//发起人名称
+                    "img":"",//发起人公司名称
+                    "abstract":"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...",//发起项目类别
+                    "createby":"admin",
+                    "createbyid":"1",
+                    "createon":"2020-01-01"
+                },
+                {
+                    "urid":"9",//项目id
+                    "title":"2支付宝第一批幸运儿，花呗报销一年，芝麻分狂",//发起人名称
+                    "img":"",//发起人公司名称
+                    "abstract":"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...",//发起项目类别
+                    "createby":"admin",
+                    "createbyid":"1",
+                    "createon":"2020-01-01"
+                },
+                {
+                    "urid":"3",//项目id
+                    "title":"3支付宝第一批幸运儿，花呗报销一年，芝麻分狂",//发起人名称
+                    "img":"",//发起人公司名称
+                    "abstract":"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...",//发起项目类别
+                    "createby":"admin",
+                    "createbyid":"1",
+                    "createon":"2020-01-01"
+                },
+                {
+                    "urid":"4",//项目id
+                    "title":"4支付宝第一批幸运儿，花呗报销一年，芝麻分狂",//发起人名称
+                    "img":"",//发起人公司名称
+                    "abstract":"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...",//发起项目类别
+                    "createby":"admin",
+                    "createbyid":"1",
+                    "createon":"2020-01-01"
+                },
+                {
+                    "urid":"5",//项目id
+                    "title":"5支付宝第一批幸运儿，花呗报销一年，芝麻分狂",//发起人名称
+                    "img":"",//发起人公司名称
+                    "abstract":"最近有网友非常兴奋，将激动地心情用文字表达在了网上，为什么呢？因为他成了支付为一批幸运儿中的其中一员！我们知道，在出席之前，支付宝推出的2019年大礼中，除了五福红包，...",//发起项目类别
+                    "createby":"admin",
+                    "createbyid":"1",
+                    "createon":"2020-01-01"
+                }]
+        }
+    }
+    $(function () {
+
+
+        $.ajax({
+            //请求方式
+            type: "GET",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url: "<%=basePath%>/article/queryarticlelist.do",
+            //数据，json字符串
+            // data : JSON.stringify(list),
+            //请求成功
+            success: function (result) {
+                var resultobj = $.parseJSON(result);
+                reload(resultobj);
+
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                console.log(e.status);
+                console.log(e.responseText);
+            }
+        });
+    });
+
+    function reload(datas) {
+        var mainObj = $('#mainContent');
+        if(datas.retstatus=="1" && (datas.retdata!=null && datas.retdata!=undefined && datas.retdata!="")){
+            var blogHtml=createBlogListHtml( $.parseJSON(datas.retdata));
+            mainObj.empty();
+            mainObj.html(blogHtml);
+        }else{
+            mainObj.empty();
+            mainObj.html("异常："+datas.retdata);
+        }
+    }
+   function createBlogListHtml(blogdatas) {
+       var html = [];
+       if(blogdatas==null||blogdatas==undefined||blogdatas=="" ){
+           html.push('无数据！');
+       }else{
+           if(blogdatas.length>0){
+               html.push('<ul>');
+               $.each( blogdatas,function (index,data) {
+                   html.push("<li>");
+                   html.push("<h3 class=\"blogtitle\">");
+                   html.push("<a href='#' onclick='viewdetail("+data.urid+")' title=\""+data.title+"\">"+data.title+"</a></h3>");
+                   html.push("</h3>");
+                   html.push("<p class=\"blogtext\">");
+                   html.push(data.abstractcontent);
+                   html.push("</p>");
+
+                   html.push("<p class=\"bloginfo\">");
+                   html.push("<span>");
+                   html.push(data.createby);
+                   html.push("</span>");
+                   html.push("<span>");
+                   html.push(data.createon);
+                   html.push("</span>");
+                   html.push("</p>");
+
+                   html.push("<a href=\"#\" onclick='viewdetail("+data.urid+")' title=\""+data.title+"\" class=\"viewmore\">");
+                   html.push("阅读更多");
+                   html.push("</a>");
+
+                   html.push("</li>");
+               });
+               html.push('</ul>');
+           }else{
+               html.push('无数据！');
+           }
+       }
+       return html.join('');
+   }
+   function viewdetail(urid) {
+        var url="<%=basePath%>/modules/article/articledetail_md.jsp?articleid="+urid;
+       window.open(url);
+   }
+</script>
 </html>

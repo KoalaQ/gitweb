@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SessionFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -20,7 +21,8 @@ public class SessionFilter implements Filter {
         String page = requestURI.substring(request.getContextPath().length());
         // 测试输出
         //System.out.println("SessionFilter.doFilter()");
-        if(!page.endsWith("system/login.jsp") && !page.endsWith("user/login/login.do") ){
+        if(!page.endsWith("system/login.jsp") && !page.endsWith("user/login/login.do")
+                && !page.endsWith("js/jquery-3.4.1.min.js")){
             // 拦截规则：
             // 如果未登录，重定向到登录，并拦截
             // 如果已登录，直接放行

@@ -15,6 +15,7 @@ public class ComResult implements Serializable {
     private String retstatus;
     //处理消息
     private String retdata;
+    private String retdatasize;
 
     public String getRetcode() {
         return retcode;
@@ -38,5 +39,13 @@ public class ComResult implements Serializable {
 
     public void setRetdata(String retdata) {
         this.retdata = retdata;
+    }
+
+    public String getRetdatasize() {
+        return retdatasize;
+    }
+
+    public void setRetdatasize(String retdatasize) {
+        this.retdatasize = retdatasize;
     }
 }

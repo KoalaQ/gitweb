@@ -7,6 +7,7 @@ public class Articles extends BaseDto {
     private String title;
     private String articletype;
     private String content;
+    private String abstractcontent;
     private String source;
 
     public Integer getArticledirid() {
@@ -47,6 +48,14 @@ public class Articles extends BaseDto {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public String getAbstractcontent() {
+        return abstractcontent;
+    }
+
+    public void setAbstractcontent(String abstractcontent) {
+        this.abstractcontent = abstractcontent;
     }
 
     @Override

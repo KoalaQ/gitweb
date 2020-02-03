@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class ArticlesMapperTest {
     ArticlesMapper articlesMapper=null;
@@ -23,6 +24,12 @@ public class ArticlesMapperTest {
 
         Articles articles = articlesMapper.getArticleId(4);
         System.out.println(articles);
+    }
+    @Test
+    public void getAllArticlesInfo(){
+
+        List<Map<String,Object>> articlesList = articlesMapper.getAllArticlesInfo();
+        System.out.println(articlesList);
     }
     @Test
     public void insertArticle(){
