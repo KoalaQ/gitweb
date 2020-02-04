@@ -27,7 +27,7 @@
     </select>
 
     <select id="getAllArticlesInfo" resultType="hashmap">
-         SELECT t.urid,t.title,t.abstractcontent,t.createdby,t.createdon,u.name createdbyname from kl_articles t
+         SELECT t.urid,t.title,t.abstractcontent,t.createdby,t.createdon,u.name createdbyname,t.articletype from kl_articles t
  LEFT JOIN sy_users u on t.createdby=u.urid
     </select>
 
@@ -42,6 +42,7 @@
         content=#{content,jdbcType=CLOB},
         lastmodifiedby=#{lastmodifiedby},
         lastmodifiedon=#{lastmodifiedon},
+        editlog=#{editlog},
         rowversion=rowversion+1
         where urid=#{urid} and rowversion=#{rowversion}
     </update>

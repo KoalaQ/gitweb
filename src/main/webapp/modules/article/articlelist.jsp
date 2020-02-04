@@ -165,7 +165,7 @@
                $.each( blogdatas,function (index,data) {
                    html.push("<li>");
                    html.push("<h3 class=\"blogtitle\">");
-                   html.push("<a href='#' onclick='viewdetail("+data.urid+")' title=\""+data.title+"\">"+data.title+"</a></h3>");
+                   html.push("<a href='#' onclick='viewdetail("+data.urid+","+data.articletype+")' title=\""+data.title+"\">"+data.title+"</a></h3>");
                    html.push("</h3>");
                    html.push("<p class=\"blogtext\">");
                    html.push(data.abstractcontent);
@@ -180,7 +180,7 @@
                    html.push("</span>");
                    html.push("</p>");
 
-                   html.push("<a href=\"#\" onclick='viewdetail("+data.urid+")' title=\""+data.title+"\" class=\"viewmore\">");
+                   html.push("<a href=\"#\" onclick='viewdetail("+data.urid+","+data.articletype+")' title=\""+data.title+"\" class=\"viewmore\">");
                    html.push("阅读更多");
                    html.push("</a>");
 
@@ -193,8 +193,8 @@
        }
        return html.join('');
    }
-   function viewdetail(urid) {
-        var url="<%=basePath%>/modules/article/articledetail_md.jsp?articleid="+urid;
+   function viewdetail(urid,articletype) {
+        var url="<%=basePath%>/modules/article/articledetail.jsp?articleid="+urid+"&articletype="+articletype;
        window.open(url);
    }
 </script>

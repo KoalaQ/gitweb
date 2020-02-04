@@ -4,9 +4,11 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import db.kl.dao.ArticlesMapper;
 import db.kl.dto.Articles;
+import db.sys.dto.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import service.article.ArticleService;
 import web.beans.ComResult;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,8 @@ public class ArticleController {
 
     @Autowired
     ArticlesMapper articlesMapper;
+    @Autowired
+    ArticleService articleService;
 
     @RequestMapping("/queryarticle")
     public void queryarticle(HttpServletRequest req, HttpServletResponse resp){
@@ -67,6 +71,43 @@ public class ArticleController {
         }else{
             comResult.setRetdata("");
             comResult.setRetdatasize("0");
+        }
+        String msg= JSON.toJSONString(comResult);
+        try {
+            resp.setHeader("content-type","text/html;charset=utf-8");
+            //resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().print(msg);
+            resp.getWriter().flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    @RequestMapping("/editarticle")
+    public void editArticle(HttpServletRequest req, HttpServletResponse resp){
+        ComResult comResult=new ComResult();
+        comResult.setRetcode(ComResult.RETCODEOK);
+        comResult.setRetstatus(ComResult.STATUSOK);
+
+        String articleid = req.getParameter("urid");
+        String title = req.getParameter("title");
+        String abstractcontent = req.getParameter("abstractcontent");
+        String editlog = req.getParameter("editlog");
+        String content = req.getParameter("content");
+
+        Articles articles=new Articles();
+        articles.setUrid(Integer.parseInt(articleid));
+        articles.setTitle(title);
+        articles.setAbstractcontent(abstractcontent);
+        articles.setEditlog(editlog);
+        articles.setContent(content);
+        Users users =  (Users)req.getSession().getAttribute("userinfo");
+        try {
+            articleService.edit(articles,users);
+        } catch (Exception e) {
+            comResult.setRetstatus(ComResult.STATUSFAIL);
+            comResult.setRetdata(e.getMessage());
+            e.printStackTrace();
         }
         String msg= JSON.toJSONString(comResult);
         try {

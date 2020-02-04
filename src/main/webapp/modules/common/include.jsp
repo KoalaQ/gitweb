@@ -4,3 +4,4 @@
 <%
     String basePath = request.getContextPath();
 %>
+<script src="<%=basePath%>/js/common.js"></script>

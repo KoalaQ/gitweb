@@ -9,6 +9,7 @@ public class Articles extends BaseDto {
     private String content;
     private String abstractcontent;
     private String source;
+    private String editlog;
 
     public Integer getArticledirid() {
         return articledirid;
@@ -56,6 +57,14 @@ public class Articles extends BaseDto {
 
     public void setAbstractcontent(String abstractcontent) {
         this.abstractcontent = abstractcontent;
+    }
+
+    public String getEditlog() {
+        return editlog;
+    }
+
+    public void setEditlog(String editlog) {
+        this.editlog = editlog;
     }
 
     @Override

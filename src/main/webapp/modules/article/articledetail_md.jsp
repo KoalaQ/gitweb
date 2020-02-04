@@ -102,6 +102,7 @@
                 if (resultobj.retstatus == "1") {
                     var contentobj = $.parseJSON(resultobj.retdata);
                     text = contentobj.content;
+                    parent.setinfo(contentobj);
                 } else {
                     text = resultobj.retdata;
                 }
