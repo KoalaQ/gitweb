@@ -635,12 +635,12 @@ public class ArticlesMapperTest {
     @Test
     public void updateArticle(){
         Articles articles = articlesMapper.getArticleId(4);
-        System.out.println(articles);
+        //System.out.println(articles);
         articles.setLastmodifiedon(new Date());
         articles.setLastmodifiedby("test");
         articles.setContent("测试修改"+articles.getContent());
-        articlesMapper.updateArticle(articles);
-
+        int num=articlesMapper.updateArticle(articles);
+        System.out.println(num);
     }
     @Test
     public void getAllArticles(){

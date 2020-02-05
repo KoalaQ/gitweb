@@ -15,7 +15,7 @@ public interface ArticlesMapper {
      */
     public List<Map<String,Object>> getAllArticlesInfo();
     public List<Articles> getAllArticles();
-    public void insertArticle(Articles articles);
-    public void updateArticle(Articles articles);
+    public int insertArticle(Articles articles);
+    public int updateArticle(Articles articles);
 
 }
